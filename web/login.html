@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexum Bank — Login</title>
+    <link rel="stylesheet" href="cadastro.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">Nexum<span> Bank</span></a>
+    </header>
+    <main>
+        <div class="formulario-container">
+            <h2>Faça seu Login</h2>
+            <p class="subtitulo">Entre com seus dados para acessar sua conta</p>
+
+            <form id="formLogin">
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="exemplo@email.com" />
+                    <span class="erro" id="erro-email"></span>
+                </div>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Sua senha" />
+                    <span class="erro" id="erro-senha"></span>
+                </div>
+
+                <button type="submit" class="btn-enviar">Entrar</button>
+            </form>
+
+            <div class="sucesso" id="mensagem-sucesso">
+                ✓ Login realizado com sucesso! Redirecionando...
+            </div>
+
+            <p class="link-voltar">Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/login.js"></script>
+</body>
+
+</html>

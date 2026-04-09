@@ -1,29 +1,35 @@
-async function entrar() {
+document.getElementById('formLogin').addEventListener('submit', async function (event) {
+    event.preventDefault();
+
     const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value;
-    const msg = document.getElementById('msg');
+    const msg = document.getElementById('mensagem-sucesso');
+
+    if (!email || !senha) {
+        alert('Preencha todos os campos');
+        return;
+    }
 
     try {
         const contas = await supabaseQuery('contas', 'GET');
 
-        let contaEncontrada = null;
+        const conta = contas.find(c => c.email === email && c.senha === senha);
 
-        for (let i = 0; i < contas.length; i++) {
-            if (contas[i].email === email && contas[i].senha === senha) {
-                contaEncontrada = contas[i];
-                break;
-            }
-        }
-
-        if (!contaEncontrada) {
-            msg.textContent = 'Email ou senha incorretos';
+        if (!conta) {
+            alert('Email ou senha incorretos');
             return;
         }
 
-        sessionStorage.setItem('contaLogada', JSON.stringify(contaEncontrada));
-        window.location.href = 'conta.html';
+        // Salva os dados do usuário na sessão
+        sessionStorage.setItem('usuarioLogado', JSON.stringify(conta));
+
+        msg.style.display = 'block';
+
+        setTimeout(() => {
+            window.location.href = 'dashboard.html'; // troca pelo destino depois do login
+        }, 1500);
 
     } catch (erro) {
-        msg.textContent = 'Erro: ' + erro.message;
+        alert('Erro: ' + erro.message);
     }
-}
+});
