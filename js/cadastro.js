@@ -9,7 +9,8 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
     const telefone = document.getElementById('telefone').value.trim();
     const msg = document.getElementById('mensagem-sucesso');
 
-    if (!email || !senha || !nome) {
+    if (!email || !senha || !nome || !cpf) {
+        alert('Preencha todos os campos obrigatórios');
         return;
     }
 
