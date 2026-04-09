@@ -1,10 +1,3 @@
-let conta = JSON.parse(sessionStorage.getItem('contaLogada'));
-
-if (!conta) {
-    alert('Faça login primeiro');
-    window.location.href = 'index.html';
-}
-
 document.getElementById('nome').textContent = conta.nome;
 document.getElementById('email').textContent = conta.email;
 atualizarSaldo();

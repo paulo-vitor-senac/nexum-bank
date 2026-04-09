@@ -26,7 +26,7 @@ document.getElementById('formLogin').addEventListener('submit', async function (
         msg.style.display = 'block';
 
         setTimeout(() => {
-            window.location.href = 'dashboard.html'; // troca pelo destino depois do login
+            window.location.href = 'conta.html'; // troca pelo destino depois do login
         }, 1500);
 
     } catch (erro) {
