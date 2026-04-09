@@ -23,6 +23,12 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
             alert('Email já cadastrado');
             return;
         }
+        const cpfExiste = contas.some(c => c.cpf === cpf);
+
+        if (cpfExiste) {
+            alert('CPF já cadastrado');
+            return;
+        }
 
         const resultado = await supabaseQuery('contas', 'POST', {
             email, senha, nome, saldo: 0, idade, cpf, telefone
